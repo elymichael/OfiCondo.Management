@@ -1,6 +1,7 @@
 ﻿namespace OfiCondo.Management.Domain.Entities
 {
     using OfiCondo.Management.Domain.Common;
+    using System;
     using System.ComponentModel.DataAnnotations;
     /// <summary>
     /// Payee of the class.
@@ -8,13 +9,22 @@
     public class Payee: Person
     {
         /// <summary>
-        /// Account number.
+        /// Identifier.
         /// </summary>
         [Key]
+        public Guid PayeeId { get; set; }
+        /// <summary>
+        /// Account number.
+        /// </summary>
+        [Required]
         public string AccountNumber { get; set; }
         /// <summary>
         /// Relation between Account and Blocks.
         /// </summary>
-        public string Account_Id { get; set; }
+        public Guid AccountId { get; set; }
+        /// <summary>
+        /// Relation Payee / Account.
+        /// </summary>
+        public Account Account { get; set; }
     }
 }
