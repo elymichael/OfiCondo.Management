@@ -13,6 +13,7 @@
     using OfiCondo.Management.Application.Features.Categories.Commands.Update;
     using OfiCondo.Management.Application.Features.Categories.Queries.Detail;
     using OfiCondo.Management.Application.Features.Categories.Queries.List;
+    using OfiCondo.Management.Application.Features.PaymentMethod.Queries.List;
     using OfiCondo.Management.Domain.Entities;
     
     public class MappingProfile: Profile
@@ -32,6 +33,9 @@
             CreateMap<Category, CreateCategoryCommand>().ReverseMap();
             CreateMap<Category, UpdateCategoryCommand>().ReverseMap();
             CreateMap<Category, DeleteCategoryCommand>().ReverseMap();
+
+            // PaymentMethod mapping
+            CreateMap<PaymentMethod, PaymentMethodListVm>();
         }
 
     }

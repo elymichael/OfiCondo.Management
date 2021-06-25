@@ -26,7 +26,7 @@ namespace OfiCondo.Management.Api.Controllers
 
         [HttpGet("all", Name = "GetAllCategories")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<CategoryListVm>>> GetAllCategories()
+        public async Task<ActionResult<List<CategoryListVm>>> GetAllItems()
         {
             var dtos = await _mediator.Send(new GetCategoryListQuery());
             return Ok(dtos);

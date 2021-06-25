@@ -26,7 +26,7 @@ namespace OfiCondo.Management.Api.Controllers
 
         [HttpGet("all", Name = "GetAllBanks")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<BankListVm>>> GetAllBanks()
+        public async Task<ActionResult<List<BankListVm>>> GetAllItems()
         {
             var dtos = await _mediator.Send(new GetBankListQuery());
             return Ok(dtos);

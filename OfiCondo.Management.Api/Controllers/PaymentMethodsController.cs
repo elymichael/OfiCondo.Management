@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OfiCondo.Management.Application.Features.PaymentMethod.Queries.List;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +13,19 @@ namespace OfiCondo.Management.Api.Controllers
     [ApiController]
     public class PaymentMethodsController : ControllerBase
     {
+        private readonly IMediator _mediator;
+
+        public PaymentMethodsController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        [HttpGet("all", Name = "GetAllPaymentMethods")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<List<PaymentMethodListVm>>> GetAllItems()
+        {
+            var dtos = await _mediator.Send(new GetPaymentMethodListQuery());
+            return Ok(dtos);
+        }
     }
 }
