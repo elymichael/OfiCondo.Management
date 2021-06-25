@@ -17,5 +17,7 @@ namespace OfiCondo.Management.Application.Constants
 
         public const string OfiCondoManagementConnectionString = "OfiCondoManagementConnectionString";
         public const string OfiCondoIdentityConnectionString = "OfiCondoIdentityConnectionString";
+
+        public const string EmailTo = "gill@snowball.be";
     }
 }

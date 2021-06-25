@@ -15,9 +15,7 @@
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRespository<>));
 
-            //services.AddScoped<ICategoryRepository, CategoryRepository>();
-            //services.AddScoped<IEventRepository, EventRepository>();
-            //services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IBankRepository, BankRepository>();
 
             return services;
         }
