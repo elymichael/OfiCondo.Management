@@ -13,8 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Categories\Queries\List\" />
-    <Folder Include="Features\Categories\Queries\Detail\" />
     <Folder Include="Features\Condominia\Commands\Create\" />
     <Folder Include="Features\Condominia\Commands\Delete\" />
     <Folder Include="Features\Condominia\Commands\Update\" />

@@ -19,10 +19,10 @@
 
         public async Task<BankDetailVm> Handle(GetBankDetailQuery request, CancellationToken cancellationToken)
         {
-            var @bank = await _bankRepository.GetByIdAsync(request.BankId);
-            var bankDetailDto = _mapper.Map<BankDetailVm>(@bank);
+            var @item = await _bankRepository.GetByIdAsync(request.BankId);
+            var itemDetailDto = _mapper.Map<BankDetailVm>(@item);
 
-            return bankDetailDto;
+            return itemDetailDto;
         }
     }
 }
