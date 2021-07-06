@@ -20,7 +20,7 @@
 
             RuleFor(e => e)
                 .MustAsync(IsUnique)
-                .WithMessage("An bank with the same name already exists.");
+                .WithMessage("A bank with the same name already exists.");
         }
 
         private async Task<bool> IsUnique(CreateBankCommand e, CancellationToken token)

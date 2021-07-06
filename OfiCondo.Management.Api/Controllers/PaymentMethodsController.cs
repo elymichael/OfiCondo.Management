@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OfiCondo.Management.Application.Features.PaymentMethod.Queries.Detail;
 using OfiCondo.Management.Application.Features.PaymentMethod.Queries.List;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,13 @@ namespace OfiCondo.Management.Api.Controllers
         {
             var dtos = await _mediator.Send(new GetPaymentMethodListQuery());
             return Ok(dtos);
+        }
+
+        [HttpGet("{id}", Name = "GetPaymentMethodById")]
+        public async Task<ActionResult<PaymentMethodDetailVm>> GetItemById(int id)
+        {
+            var getEventDetailQuery = new GetPaymentMethodDetailQuery() { PaymentMethodId = id };
+            return Ok(await _mediator.Send(getEventDetailQuery));
         }
     }
 }

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OfiCondo.Management.Application.Features.Banks.Queries.List
+﻿namespace OfiCondo.Management.Application.Features.Banks.Queries.List
 {
+    using System;
     public class BankListVm
     {
         public Guid BankId { get; set; }

@@ -14,28 +14,28 @@
 
     public class CreateBankCommandHandler : IRequestHandler<CreateBankCommand, Guid>
     {
-        private readonly IBankRepository _bankRepository;
+        private readonly IBankRepository _baseRepository;
         private readonly IMapper _mapper;
         private readonly IEmailService _emailService;
         private readonly ILogger<CreateBankCommandHandler> _logger;
 
-        public CreateBankCommandHandler(IMapper mapper, IBankRepository bankRepository, IEmailService emailService, ILogger<CreateBankCommandHandler> logger)
+        public CreateBankCommandHandler(IMapper mapper, IBankRepository baseRepository, IEmailService emailService, ILogger<CreateBankCommandHandler> logger)
         {
             _mapper = mapper;
-            _bankRepository = bankRepository;
+            _baseRepository = baseRepository;
             _emailService = emailService;
             _logger = logger;
         }
         public async Task<Guid> Handle(CreateBankCommand request, CancellationToken cancellationToken)
         {
-            var validator = new CreateBankCommandValidator(_bankRepository);
+            var validator = new CreateBankCommandValidator(_baseRepository);
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult.Errors.Count > 0)
                 throw new Exceptions.ValidationException(validationResult);
 
-            var @bank = _mapper.Map<Bank>(request);
-            @bank = await _bankRepository.AddAsync(@bank);
+            var @item = _mapper.Map<Bank>(request);
+            @item = await _baseRepository.AddAsync(@item);
 
             var email = new Email() { To = ApplicationConstants.EmailTo, Body = $"A new bank account was created: {request}", Subject = "A new bank was created." };
 
@@ -45,10 +45,10 @@
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Mailing about bank {@bank.BankId} failed due to an error with the mail service: {ex.Message}");
+                _logger.LogError($"Mailing about bank {@item.BankId} failed due to an error with the mail service: {ex.Message}");
             }
 
-            return @bank.BankId;
+            return @item.BankId;
         }
     }
 }

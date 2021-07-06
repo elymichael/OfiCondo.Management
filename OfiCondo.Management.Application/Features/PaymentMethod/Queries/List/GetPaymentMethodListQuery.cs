@@ -2,7 +2,6 @@
 {
     using MediatR;
     using System.Collections.Generic;
-
     public class GetPaymentMethodListQuery: IRequest<List<PaymentMethodListVm>>
     {
 

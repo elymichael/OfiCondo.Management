@@ -13,11 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Condominia\Commands\Create\" />
-    <Folder Include="Features\Condominia\Commands\Delete\" />
-    <Folder Include="Features\Condominia\Commands\Update\" />
-    <Folder Include="Features\Condominia\Queries\Detail\" />
-    <Folder Include="Features\Condominia\Queries\List\" />
     <Folder Include="Features\Expenses\Commands\Create\" />
     <Folder Include="Features\Expenses\Commands\Delete\" />
     <Folder Include="Features\Expenses\Commands\Update\" />
@@ -28,21 +23,6 @@
     <Folder Include="Features\Incomes\Commands\Update\" />
     <Folder Include="Features\Incomes\Queries\Detail\" />
     <Folder Include="Features\Incomes\Queries\List\" />
-    <Folder Include="Features\Messages\Commands\Create\" />
-    <Folder Include="Features\Messages\Commands\Delete\" />
-    <Folder Include="Features\Messages\Commands\Update\" />
-    <Folder Include="Features\Messages\Queries\Detail\" />
-    <Folder Include="Features\Messages\Queries\List\" />
-    <Folder Include="Features\Minutes\Commands\Create\" />
-    <Folder Include="Features\Minutes\Commands\Delete\" />
-    <Folder Include="Features\Minutes\Commands\Update\" />
-    <Folder Include="Features\Minutes\Queries\Detail\" />
-    <Folder Include="Features\Minutes\Queries\List\" />
-    <Folder Include="Features\Units\Commands\Create\" />
-    <Folder Include="Features\Units\Commands\Delete\" />
-    <Folder Include="Features\Units\Commands\Update\" />
-    <Folder Include="Features\Units\Queries\Detail\" />
-    <Folder Include="Features\Units\Queries\List\" />
   </ItemGroup>
 
   <ItemGroup>

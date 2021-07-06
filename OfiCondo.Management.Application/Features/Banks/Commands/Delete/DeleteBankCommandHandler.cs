@@ -10,24 +10,24 @@
 
     public class DeleteBankCommandHandler : IRequestHandler<DeleteBankCommand>
     {
-        private readonly IBankRepository _bankRepository;
+        private readonly IBankRepository _baseRepository;
         private readonly IMapper _mapper;
-        public DeleteBankCommandHandler(IMapper mapper, IBankRepository bankRepository)
+        public DeleteBankCommandHandler(IMapper mapper, IBankRepository baseRepository)
         {
             _mapper = mapper;
-            _bankRepository = bankRepository;
+            _baseRepository = baseRepository;
         }
 
         public async Task<MediatR.Unit> Handle(DeleteBankCommand request, CancellationToken cancellationToken)
         {
-            var itemToDelete = await _bankRepository.GetByIdAsync(request.BankId);
+            var itemToDelete = await _baseRepository.GetByIdAsync(request.BankId);
 
             if (itemToDelete == null)
             {
                 throw new NotFoundException(nameof(Bank), request.BankId);
             }
 
-            await _bankRepository.DeleteAsync(itemToDelete);
+            await _baseRepository.DeleteAsync(itemToDelete);
 
             return MediatR.Unit.Value;
         }

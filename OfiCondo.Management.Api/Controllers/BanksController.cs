@@ -1,18 +1,18 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using OfiCondo.Management.Application.Features.Banks.Commands.Create;
-using OfiCondo.Management.Application.Features.Banks.Commands.Delete;
-using OfiCondo.Management.Application.Features.Banks.Commands.Update;
-using OfiCondo.Management.Application.Features.Banks.Queries.Detail;
-using OfiCondo.Management.Application.Features.Banks.Queries.List;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace OfiCondo.Management.Api.Controllers
+﻿namespace OfiCondo.Management.Api.Controllers
 {
+    using MediatR;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using OfiCondo.Management.Application.Features.Banks.Commands.Create;
+    using OfiCondo.Management.Application.Features.Banks.Commands.Delete;
+    using OfiCondo.Management.Application.Features.Banks.Commands.Update;
+    using OfiCondo.Management.Application.Features.Banks.Queries.Detail;
+    using OfiCondo.Management.Application.Features.Banks.Queries.List;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     [Route("api/[controller]")]
     [ApiController]
     public class BanksController : ControllerBase
@@ -40,9 +40,9 @@ namespace OfiCondo.Management.Api.Controllers
         }
 
         [HttpPost(Name = "AddBank")]
-        public async Task<ActionResult<ActionResult<Guid>>> Create([FromBody] CreateBankCommand createCategoryCommand)
+        public async Task<ActionResult<ActionResult<Guid>>> Create([FromBody] CreateBankCommand createItemCommand)
         {
-            var response = await _mediator.Send(createCategoryCommand);
+            var response = await _mediator.Send(createItemCommand);
             return Ok(response);
         }
 

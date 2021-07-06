@@ -9,17 +9,17 @@
 
     public class GetBankDetailQueryHandler : IRequestHandler<GetBankDetailQuery, BankDetailVm>
     {
-        private readonly IAsyncRepository<Bank> _bankRepository;        
+        private readonly IAsyncRepository<Bank> _baseRepository;        
         private readonly IMapper _mapper;
-        public GetBankDetailQueryHandler(IMapper mapper, IAsyncRepository<Bank> bankRepository)
+        public GetBankDetailQueryHandler(IMapper mapper, IAsyncRepository<Bank> baseRepository)
         {
-            _bankRepository = bankRepository;
+            _baseRepository = baseRepository;
             _mapper = mapper;
         }
 
         public async Task<BankDetailVm> Handle(GetBankDetailQuery request, CancellationToken cancellationToken)
         {
-            var @item = await _bankRepository.GetByIdAsync(request.BankId);
+            var @item = await _baseRepository.GetByIdAsync(request.BankId);
             var itemDetailDto = _mapper.Map<BankDetailVm>(@item);
 
             return itemDetailDto;

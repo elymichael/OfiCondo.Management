@@ -10,18 +10,18 @@
 
     public class GetBankListQueryHandler: IRequestHandler<GetBankListQuery, List<BankListVm>>
     {
-        private readonly IBankRepository _bankRepository;
+        private readonly IBankRepository _baseRepository;
         private readonly IMapper _mapper;
 
-        public GetBankListQueryHandler(IMapper mapper, IBankRepository bankRepository)
+        public GetBankListQueryHandler(IMapper mapper, IBankRepository baseRepository)
         {
             _mapper = mapper;
-            _bankRepository = bankRepository;
+            _baseRepository = baseRepository;
         }
 
         public async Task<List<BankListVm>> Handle(GetBankListQuery request, CancellationToken cancellationToken)
         {
-            var records = (await _bankRepository.ListAllAsync()).OrderBy(x => x.Name);
+            var records = (await _baseRepository.ListAllAsync()).OrderBy(x => x.Name);
             return _mapper.Map<List<BankListVm>>(records);
         }
     }

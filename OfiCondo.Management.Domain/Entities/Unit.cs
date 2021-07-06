@@ -20,9 +20,8 @@ namespace OfiCondo.Management.Domain.Entities
         public string Name { get; set; }
         /// <summary>
         /// Owner of the unit (apartment).
-        /// </summary>        
-        [Required]
-        public Guid OwnerId { get; set; }
+        /// </summary>                
+        public Guid? OwnerId { get; set; }
         /// <summary>
         /// Owner relation.
         /// </summary>

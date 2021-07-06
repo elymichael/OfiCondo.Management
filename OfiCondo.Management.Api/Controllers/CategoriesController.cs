@@ -1,18 +1,17 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using OfiCondo.Management.Application.Features.Categories.Commands.Create;
-using OfiCondo.Management.Application.Features.Categories.Commands.Delete;
-using OfiCondo.Management.Application.Features.Categories.Commands.Update;
-using OfiCondo.Management.Application.Features.Categories.Queries.Detail;
-using OfiCondo.Management.Application.Features.Categories.Queries.List;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace OfiCondo.Management.Api.Controllers
+﻿namespace OfiCondo.Management.Api.Controllers
 {
+    using MediatR;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using OfiCondo.Management.Application.Features.Categories.Commands.Create;
+    using OfiCondo.Management.Application.Features.Categories.Commands.Delete;
+    using OfiCondo.Management.Application.Features.Categories.Commands.Update;
+    using OfiCondo.Management.Application.Features.Categories.Queries.Detail;
+    using OfiCondo.Management.Application.Features.Categories.Queries.List;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -40,9 +39,9 @@ namespace OfiCondo.Management.Api.Controllers
             return Ok(await _mediator.Send(getEventDetailQuery));
         }
         [HttpPost(Name = "AddCategory")]
-        public async Task<ActionResult<ActionResult<Guid>>> Create([FromBody] CreateCategoryCommand createCategoryCommand)
+        public async Task<ActionResult<ActionResult<Guid>>> Create([FromBody] CreateCategoryCommand createItemCommand)
         {
-            var response = await _mediator.Send(createCategoryCommand);
+            var response = await _mediator.Send(createItemCommand);
             return Ok(response);
         }
 

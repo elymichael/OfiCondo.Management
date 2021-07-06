@@ -10,17 +10,17 @@
 
     public class UpdateBankCommandHandler: IRequestHandler<UpdateBankCommand>
     {
-        private readonly IBankRepository _bankRepository;
+        private readonly IBankRepository _baseRepository;
         private readonly IMapper _mapper;
-        public UpdateBankCommandHandler(IMapper mapper, IBankRepository bankRepository)
+        public UpdateBankCommandHandler(IMapper mapper, IBankRepository baseRepository)
         {
-            _bankRepository = bankRepository;
+            _baseRepository = baseRepository;
             _mapper = mapper;
         }
 
         public async Task<MediatR.Unit> Handle(UpdateBankCommand request, CancellationToken cancellationToken)
         {
-            var eventToUpdate = await _bankRepository.GetByIdAsync(request.BankId);
+            var eventToUpdate = await _baseRepository.GetByIdAsync(request.BankId);
 
             if (eventToUpdate == null)
             {
@@ -35,7 +35,7 @@
 
             _mapper.Map(request, eventToUpdate, typeof(UpdateBankCommand), typeof(Bank));
 
-            await _bankRepository.UpdateAsync(eventToUpdate);
+            await _baseRepository.UpdateAsync(eventToUpdate);
 
             return MediatR.Unit.Value;
         }

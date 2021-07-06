@@ -22,7 +22,7 @@
 
             if (itemToDelete == null)
             {
-                throw new NotFoundException(nameof(Bank), request.CategoryId);
+                throw new NotFoundException(nameof(Category), request.CategoryId);
             }
 
             await _baseRepository.DeleteAsync(itemToDelete);

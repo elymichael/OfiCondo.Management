@@ -9,12 +9,19 @@ update-database -Context OfiCondoIdentityDbContext
 Working with API
 Ready
 --Bank
---Cateogry
---PaymentMethod
-Pending
+--Category
 --Condominia
---Expenses
---Incomes
 --Messages
 --Minutes
+--PaymentMethod
 --Units
+Pending
+--Account (Review)
+--Attachment
+--Expenses
+--Fee
+--Incomes
+--Owner (Review)
+--Payees
+
+**** Check validator classes. ****

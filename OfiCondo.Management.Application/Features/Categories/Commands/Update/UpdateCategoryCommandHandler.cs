@@ -23,7 +23,7 @@
 
             if (itemToUpdate == null)
             {
-                throw new NotFoundException(nameof(Bank), request.CategoryId);
+                throw new NotFoundException(nameof(Category), request.CategoryId);
             }
 
             var validator = new UpdateCategoryCommandValidator();
