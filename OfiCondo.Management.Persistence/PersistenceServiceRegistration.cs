@@ -19,6 +19,10 @@
             services.AddScoped<ICondominiumRepository, CondominiumRepository>();
             services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
             services.AddScoped<IUnitRepository, UnitRepository>();
+            services.AddScoped<IFeeRepository, FeeRepository>();
+            services.AddScoped<IPayeeRepository, PayeeRepository>();
+            services.AddScoped<IIncomeRepository, IncomeRepository>();
+            services.AddScoped<IExpenseRepository, ExpenseRepository>();
 
             return services;
         }

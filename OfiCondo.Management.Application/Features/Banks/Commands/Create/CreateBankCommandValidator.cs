@@ -2,7 +2,6 @@
 {
     using FluentValidation;
     using OfiCondo.Management.Application.Contracts.Persistence;
-    using OfiCondo.Management.Domain.Entities;
     using System.Threading;
     using System.Threading.Tasks;
 

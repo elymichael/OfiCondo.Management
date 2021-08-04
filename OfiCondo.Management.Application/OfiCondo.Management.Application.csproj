@@ -13,19 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Expenses\Commands\Create\" />
-    <Folder Include="Features\Expenses\Commands\Delete\" />
-    <Folder Include="Features\Expenses\Commands\Update\" />
-    <Folder Include="Features\Expenses\Queries\Detail\" />
-    <Folder Include="Features\Expenses\Queries\List\" />
-    <Folder Include="Features\Incomes\Commands\Create\" />
-    <Folder Include="Features\Incomes\Commands\Delete\" />
-    <Folder Include="Features\Incomes\Commands\Update\" />
-    <Folder Include="Features\Incomes\Queries\Detail\" />
-    <Folder Include="Features\Incomes\Queries\List\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\OfiCondo.Management.Domain\OfiCondo.Management.Domain.csproj" />
   </ItemGroup>
 

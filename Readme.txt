@@ -8,20 +8,20 @@ update-database -Context OfiCondoIdentityDbContext
 
 Working with API
 Ready
---Bank
---Category
---Condominia
+--Bank: it stores the bank accounts used for payments.
+--Category: the category of the expenses registered in the system.
+--Condominia: it's the block of units that conform a condominium.
+--Expenses
+--Fee
+--Incomes
 --Messages
 --Minutes
+--Payees
 --PaymentMethod
 --Units
 Pending
 --Account (Review)
 --Attachment
---Expenses
---Fee
---Incomes
 --Owner (Review)
---Payees
 
 **** Check validator classes. ****

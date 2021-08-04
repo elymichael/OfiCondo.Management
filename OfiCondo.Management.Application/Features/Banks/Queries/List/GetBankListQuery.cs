@@ -2,7 +2,6 @@
 {
     using MediatR;
     using System.Collections.Generic;
-
     public class GetBankListQuery: IRequest<List<BankListVm>>
     {
     }
