@@ -1,10 +1,23 @@
+# almanaquerd
+
+## Project configuration
+```
+npm install
+```
+
+### Create database
+```
 Working with Management:
 add-migration InitialMigration -Context OfiCondoDbContext
 update-database -Context OfiCondoDbContext
+```
 
+### Create database
+```
 Working with Identity:
 add-migration InitialMigration -Context OfiCondoIdentityDbContext
 update-database -Context OfiCondoIdentityDbContext
+```
 
 Working with API
 Ready
