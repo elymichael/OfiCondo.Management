@@ -1,10 +1,6 @@
 # almanaquerd
 
-## Project configuration
-```
-npm install
-```
-
+## Working with Database
 ### Create database
 ```
 Working with Management:
@@ -19,6 +15,8 @@ add-migration InitialMigration -Context OfiCondoIdentityDbContext
 update-database -Context OfiCondoIdentityDbContext
 ```
 
+## Project Status
+```
 Working with API
 Ready
 --Bank: it stores the bank accounts used for payments.
@@ -36,5 +34,6 @@ Pending
 --Account (Review)
 --Attachment
 --Owner (Review)
-
+****
 **** Check validator classes. ****
+```
