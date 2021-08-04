@@ -1,4 +1,5 @@
-# almanaquerd
+# OfiCondo Management Project
+Application created to manage condominiums and apartments.
 
 ## Working with Database
 ### Create database
