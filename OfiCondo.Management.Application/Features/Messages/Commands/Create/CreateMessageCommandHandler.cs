@@ -36,16 +36,7 @@
             var @item = _mapper.Map<Message>(request);
             @item = await _baseRepository.AddAsync(@item);
 
-            var email = new Email() { To = ApplicationConstants.EmailTo, Body = $"A new category account was created: {request}", Subject = "A new category was created." };
-
-            try
-            {
-                await _emailService.SendEmail(email);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Mailing about category {@item.MessageId} failed due to an error with the mail service: {ex.Message}");
-            }
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - New [{nameof(Message)}] was created.", request);
 
             return @item.MessageId;
         }

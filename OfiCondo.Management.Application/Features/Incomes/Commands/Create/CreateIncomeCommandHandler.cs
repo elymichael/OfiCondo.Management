@@ -37,16 +37,7 @@
             var @item = _mapper.Map<Income>(request);
             @item = await _baseRepository.AddAsync(@item);
 
-            var email = new Email() { To = ApplicationConstants.EmailTo, Body = $"A new income was created: {request}", Subject = "A new income was created." };
-
-            try
-            {
-                await _emailService.SendEmail(email);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Mailing about income {@item.IncomeId} failed due to an error with the mail service: {ex.Message}");
-            }
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - New [{nameof(Income)}] was created.", request);
 
             return @item.IncomeId;
         }

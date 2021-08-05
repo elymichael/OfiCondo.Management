@@ -6,6 +6,7 @@ namespace OfiCondo.Management.Application.Features.Minutes.Commands.Update
 {
     using AutoMapper;
     using MediatR;
+    using Microsoft.Extensions.Logging;
     using OfiCondo.Management.Application.Contracts.Persistence;
     using OfiCondo.Management.Application.Exceptions;
     using OfiCondo.Management.Domain.Entities;
@@ -15,10 +16,12 @@ namespace OfiCondo.Management.Application.Features.Minutes.Commands.Update
     {
         private readonly IAsyncRepository<Minute> _baseRepository;
         private readonly IMapper _mapper;
-        public UpdateMinuteCommandHandler(IMapper mapper, IAsyncRepository<Minute> baseRepository)
+        private readonly ILogger<UpdateMinuteCommandHandler> _logger;
+        public UpdateMinuteCommandHandler(IMapper mapper, IAsyncRepository<Minute> baseRepository, ILogger<UpdateMinuteCommandHandler> logger)
         {
             _mapper = mapper;
             _baseRepository = baseRepository;
+            _logger = logger;
         }
 
         public async Task<MediatR.Unit> Handle(UpdateMinuteCommand request, CancellationToken cancellationToken)
@@ -39,6 +42,8 @@ namespace OfiCondo.Management.Application.Features.Minutes.Commands.Update
             _mapper.Map(request, itemToUpdate, typeof(UpdateMinuteCommand), typeof(Minute));
 
             await _baseRepository.UpdateAsync(itemToUpdate);
+
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - [{nameof(Minute)}] was updated.", request);
 
             return MediatR.Unit.Value;
         }

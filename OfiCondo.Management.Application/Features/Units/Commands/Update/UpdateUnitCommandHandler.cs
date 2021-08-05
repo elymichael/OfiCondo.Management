@@ -2,8 +2,10 @@
 {
     using AutoMapper;
     using MediatR;
+    using Microsoft.Extensions.Logging;
     using OfiCondo.Management.Application.Contracts.Persistence;
-    using OfiCondo.Management.Application.Exceptions;    
+    using OfiCondo.Management.Application.Exceptions;
+    using System;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -11,10 +13,12 @@
     {
         private readonly IUnitRepository _baseRepository;
         private readonly IMapper _mapper;
-        public UpdateUnitCommandHandler(IMapper mapper, IUnitRepository baseRepository)
+        private readonly ILogger<UpdateUnitCommandHandler> _logger;
+        public UpdateUnitCommandHandler(IMapper mapper, IUnitRepository baseRepository, ILogger<UpdateUnitCommandHandler> logger)
         {
             _baseRepository = baseRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<MediatR.Unit> Handle(UpdateUnitCommand request, CancellationToken cancellationToken)
@@ -35,6 +39,8 @@
             _mapper.Map(request, eventToUpdate, typeof(UpdateUnitCommand), typeof(Domain.Entities.Unit));
 
             await _baseRepository.UpdateAsync(eventToUpdate);
+
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - [Unit] was updated.", request);
 
             return MediatR.Unit.Value;
         }

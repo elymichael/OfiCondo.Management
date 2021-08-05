@@ -37,17 +37,8 @@
             var @item = _mapper.Map<Bank>(request);
             @item = await _baseRepository.AddAsync(@item);
 
-            var email = new Email() { To = ApplicationConstants.EmailTo, Body = $"A new bank account was created: {request}", Subject = "A new bank was created." };
-
-            try
-            {
-                await _emailService.SendEmail(email);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Mailing about bank {@item.BankId} failed due to an error with the mail service: {ex.Message}");
-            }
-
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - New [{nameof(Bank)}] was created.", request);
+            
             return @item.BankId;
         }
     }

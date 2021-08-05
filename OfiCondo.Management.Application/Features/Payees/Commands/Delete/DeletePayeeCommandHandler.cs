@@ -2,19 +2,23 @@
 {
     using AutoMapper;
     using MediatR;
+    using Microsoft.Extensions.Logging;
     using OfiCondo.Management.Application.Contracts.Persistence;
     using OfiCondo.Management.Application.Exceptions;
     using OfiCondo.Management.Domain.Entities;
+    using System;
     using System.Threading;
     using System.Threading.Tasks;
     public class DeletePayeeCommandHandler : IRequestHandler<DeletePayeeCommand>
     {
         private readonly IPayeeRepository _baseRepository;
         private readonly IMapper _mapper;
-        public DeletePayeeCommandHandler(IMapper mapper, IPayeeRepository baseRepository)
+        private readonly ILogger<DeletePayeeCommandHandler> _logger;
+        public DeletePayeeCommandHandler(IMapper mapper, IPayeeRepository baseRepository, ILogger<DeletePayeeCommandHandler> logger)
         {
             _mapper = mapper;
             _baseRepository = baseRepository;
+            _logger = logger;
         }
 
         public async Task<MediatR.Unit> Handle(DeletePayeeCommand request, CancellationToken cancellationToken)
@@ -27,6 +31,8 @@
             }
 
             await _baseRepository.DeleteAsync(itemToDelete);
+
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - [{nameof(Payee)}] was deleted.", request);
 
             return MediatR.Unit.Value;
         }

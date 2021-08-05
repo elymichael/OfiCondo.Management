@@ -7,6 +7,7 @@
     using OfiCondo.Management.Application.Contracts.Persistence;
     using OfiCondo.Management.Application.Exceptions;
     using OfiCondo.Management.Domain.Entities;
+    using System;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -42,6 +43,8 @@
             _mapper.Map(request, eventToUpdate, typeof(UpdateExpenseCommand), typeof(Expense));
 
             await _baseRepository.UpdateAsync(eventToUpdate);
+
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - [{nameof(Expense)}] was updated.", request);
 
             return MediatR.Unit.Value;
         }

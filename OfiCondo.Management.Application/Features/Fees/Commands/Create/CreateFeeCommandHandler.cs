@@ -39,14 +39,7 @@
 
             var email = new Email() { To = ApplicationConstants.EmailTo, Body = $"A new fee account was created: {request}", Subject = "A new fee was created." };
 
-            try
-            {
-                await _emailService.SendEmail(email);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Mailing about Fee {@item.FeeId} failed due to an error with the mail service: {ex.Message}");
-            }
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - New [{nameof(Fee)}] was created.", request);
 
             return @item.FeeId;
         }

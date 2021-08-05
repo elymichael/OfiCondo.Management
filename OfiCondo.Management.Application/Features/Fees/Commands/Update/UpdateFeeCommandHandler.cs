@@ -2,9 +2,11 @@
 {
     using AutoMapper;
     using MediatR;
+    using Microsoft.Extensions.Logging;
     using OfiCondo.Management.Application.Contracts.Persistence;
     using OfiCondo.Management.Application.Exceptions;
     using OfiCondo.Management.Domain.Entities;
+    using System;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -12,10 +14,12 @@
     {
         private readonly IFeeRepository _baseRepository;
         private readonly IMapper _mapper;
-        public UpdateFeeCommandHandler(IMapper mapper, IFeeRepository baseRepository)
+        private readonly ILogger<UpdateFeeCommandHandler> _logger;
+        public UpdateFeeCommandHandler(IMapper mapper, IFeeRepository baseRepository, ILogger<UpdateFeeCommandHandler> logger)
         {
             _baseRepository = baseRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<MediatR.Unit> Handle(UpdateFeeCommand request, CancellationToken cancellationToken)
@@ -33,9 +37,11 @@
             if (validatorResult.Errors.Count > 0)
                 throw new ValidationException(validatorResult);
 
-            _mapper.Map(request, eventToUpdate, typeof(UpdateFeeCommand), typeof(Bank));
+            _mapper.Map(request, eventToUpdate, typeof(UpdateFeeCommand), typeof(Fee));
 
             await _baseRepository.UpdateAsync(eventToUpdate);
+
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - [{nameof(Fee)}] was updated.", request);
 
             return MediatR.Unit.Value;
         }

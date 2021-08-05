@@ -37,7 +37,7 @@
             var @item = _mapper.Map<Condominium>(request);
             @item = await _baseRepository.AddAsync(@item);
 
-            var email = new Email() { To = ApplicationConstants.EmailTo, Body = $"A new condominium account was created: {request}", Subject = "A new bank was created." };
+            var email = new Email() { To = ApplicationConstants.EmailTo, Body = $"A new condominium account was created: {request}", Subject = "A new condominium was created." };
 
             try
             {

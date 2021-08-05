@@ -2,8 +2,10 @@
 {
     using AutoMapper;
     using MediatR;
+    using Microsoft.Extensions.Logging;
     using OfiCondo.Management.Application.Contracts.Persistence;
-    using OfiCondo.Management.Application.Exceptions;    
+    using OfiCondo.Management.Application.Exceptions;
+    using System;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -11,10 +13,12 @@
     {
         private readonly IUnitRepository _baseRepository;
         private readonly IMapper _mapper;
-        public DeleteUnitCommandHandler(IMapper mapper, IUnitRepository baseRepository)
+        private readonly ILogger<DeleteUnitCommandHandler> _logger;
+        public DeleteUnitCommandHandler(IMapper mapper, IUnitRepository baseRepository, ILogger<DeleteUnitCommandHandler> logger)
         {
             _mapper = mapper;
             _baseRepository = baseRepository;
+            _logger = logger;
         }
 
         public async Task<MediatR.Unit> Handle(DeleteUnitCommand request, CancellationToken cancellationToken)
@@ -27,6 +31,8 @@
             }
 
             await _baseRepository.DeleteAsync(itemToDelete);
+
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - [Unit] was deleted.", request);
 
             return MediatR.Unit.Value;
         }

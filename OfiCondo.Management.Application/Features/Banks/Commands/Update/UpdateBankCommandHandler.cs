@@ -2,9 +2,11 @@
 {
     using AutoMapper;
     using MediatR;
+    using Microsoft.Extensions.Logging;
     using OfiCondo.Management.Application.Contracts.Persistence;
     using OfiCondo.Management.Application.Exceptions;
     using OfiCondo.Management.Domain.Entities;
+    using System;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -12,10 +14,12 @@
     {
         private readonly IBankRepository _baseRepository;
         private readonly IMapper _mapper;
-        public UpdateBankCommandHandler(IMapper mapper, IBankRepository baseRepository)
+        private readonly ILogger<UpdateBankCommandHandler> _logger;
+        public UpdateBankCommandHandler(IMapper mapper, IBankRepository baseRepository, ILogger<UpdateBankCommandHandler> logger)
         {
             _baseRepository = baseRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<MediatR.Unit> Handle(UpdateBankCommand request, CancellationToken cancellationToken)
@@ -36,6 +40,8 @@
             _mapper.Map(request, eventToUpdate, typeof(UpdateBankCommand), typeof(Bank));
 
             await _baseRepository.UpdateAsync(eventToUpdate);
+
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - [{nameof(Bank)}] was update.", request);
 
             return MediatR.Unit.Value;
         }

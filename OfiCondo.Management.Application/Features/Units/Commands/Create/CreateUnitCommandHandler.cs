@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OfiCondo.Management.Application.Features.Units.Commands.Create
+﻿namespace OfiCondo.Management.Application.Features.Units.Commands.Create
 {
     using AutoMapper;
     using MediatR;
     using Microsoft.Extensions.Logging;
-    using OfiCondo.Management.Application.Constants;
     using OfiCondo.Management.Application.Contracts.Infrastructure;
     using OfiCondo.Management.Application.Contracts.Persistence;
-    using OfiCondo.Management.Application.Models.Mail;
-    using OfiCondo.Management.Domain.Entities;
     using System;
     using System.Threading;
     using System.Threading.Tasks;
@@ -41,16 +34,7 @@ namespace OfiCondo.Management.Application.Features.Units.Commands.Create
             var @item = _mapper.Map<Domain.Entities.Unit>(request);
             @item = await _baseRepository.AddAsync(@item);
 
-            var email = new Email() { To = ApplicationConstants.EmailTo, Body = $"A new unit account was created: {request}", Subject = "A new bank was created." };
-
-            try
-            {
-                await _emailService.SendEmail(email);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Mailing about unit {@item.CondominiumId} failed due to an error with the mail service: {ex.Message}");
-            }
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - New [Unit] was created.", request);
 
             return @item.CondominiumId;
         }

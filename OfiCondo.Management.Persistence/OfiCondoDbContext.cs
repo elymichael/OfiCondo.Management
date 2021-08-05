@@ -99,7 +99,37 @@
             modelBuilder.Entity<Category>().HasData(new Category
             {
                 CategoryId = Guid.NewGuid(),
-                Name = "GENERAL"
+                Name = "GASTO GENERAL"
+            });
+            modelBuilder.Entity<Category>().HasData(new Category
+            {
+                CategoryId = Guid.NewGuid(),
+                Name = "GAS"
+            });
+            modelBuilder.Entity<Category>().HasData(new Category
+            {
+                CategoryId = Guid.NewGuid(),
+                Name = "ENERGIA ELECTRICA"
+            });
+            modelBuilder.Entity<Category>().HasData(new Category
+            {
+                CategoryId = Guid.NewGuid(),
+                Name = "AGUA"
+            });
+            modelBuilder.Entity<Category>().HasData(new Category
+            {
+                CategoryId = Guid.NewGuid(),
+                Name = "LIMPIEZA"
+            });
+            modelBuilder.Entity<Category>().HasData(new Category
+            {
+                CategoryId = Guid.NewGuid(),
+                Name = "MANTENIMIENTO"
+            });
+            modelBuilder.Entity<Category>().HasData(new Category
+            {
+                CategoryId = Guid.NewGuid(),
+                Name = "REPARACION"
             });
         }
     }

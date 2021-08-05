@@ -2,19 +2,23 @@
 {
     using AutoMapper;
     using MediatR;
+    using Microsoft.Extensions.Logging;
     using OfiCondo.Management.Application.Contracts.Persistence;
     using OfiCondo.Management.Application.Exceptions;
     using OfiCondo.Management.Domain.Entities;
+    using System;
     using System.Threading;
     using System.Threading.Tasks;
     public class UpdateCategoryCommandHandler: IRequestHandler<UpdateCategoryCommand>
     {
         private readonly IAsyncRepository<Category> _baseRepository;
         private readonly IMapper _mapper;
-        public UpdateCategoryCommandHandler(IMapper mapper, IAsyncRepository<Category> baseRepository)
+        private readonly ILogger<UpdateCategoryCommandHandler> _logger;
+        public UpdateCategoryCommandHandler(IMapper mapper, IAsyncRepository<Category> baseRepository, ILogger<UpdateCategoryCommandHandler> logger)
         {
             _mapper = mapper;
             _baseRepository = baseRepository;
+            _logger = logger;
         }
 
         public async Task<MediatR.Unit> Handle(UpdateCategoryCommand request, CancellationToken cancellationToken)
@@ -35,6 +39,8 @@
             _mapper.Map(request, itemToUpdate, typeof(UpdateCategoryCommand), typeof(Category));
 
             await _baseRepository.UpdateAsync(itemToUpdate);
+
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - [{nameof(Category)}] was updated.", request);
 
             return MediatR.Unit.Value;
         }

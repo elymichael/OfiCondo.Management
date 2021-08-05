@@ -37,16 +37,7 @@
             var @item = _mapper.Map<Expense>(request);
             @item = await _baseRepository.AddAsync(@item);
 
-            var email = new Email() { To = ApplicationConstants.EmailTo, Body = $"A new expense account was created: {request}", Subject = "A new expense was created." };
-
-            try
-            {
-                await _emailService.SendEmail(email);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Mailing about expense {@item.ExpenseId} failed due to an error with the mail service: {ex.Message}");
-            }
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - New [{nameof(Expense)}] was created.", request);
 
             return @item.ExpenseId;
         }

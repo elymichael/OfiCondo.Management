@@ -6,6 +6,7 @@ namespace OfiCondo.Management.Application.Features.Messages.Commands.Update
 {
     using AutoMapper;
     using MediatR;
+    using Microsoft.Extensions.Logging;
     using OfiCondo.Management.Application.Contracts.Persistence;
     using OfiCondo.Management.Application.Exceptions;
     using OfiCondo.Management.Domain.Entities;
@@ -15,10 +16,12 @@ namespace OfiCondo.Management.Application.Features.Messages.Commands.Update
     {
         private readonly IAsyncRepository<Message> _baseRepository;
         private readonly IMapper _mapper;
-        public UpdateMessageCommandHandler(IMapper mapper, IAsyncRepository<Message> baseRepository)
+        private readonly ILogger<UpdateMessageCommandHandler> _logger;
+        public UpdateMessageCommandHandler(IMapper mapper, IAsyncRepository<Message> baseRepository, ILogger<UpdateMessageCommandHandler> logger)
         {
             _mapper = mapper;
             _baseRepository = baseRepository;
+            _logger = logger;
         }
 
         public async Task<MediatR.Unit> Handle(UpdateMessageCommand request, CancellationToken cancellationToken)
@@ -39,6 +42,8 @@ namespace OfiCondo.Management.Application.Features.Messages.Commands.Update
             _mapper.Map(request, itemToUpdate, typeof(UpdateMessageCommand), typeof(Message));
 
             await _baseRepository.UpdateAsync(itemToUpdate);
+
+            _logger.LogInformation($"{DateTime.Now:yyyyMMdd hh:mm:ss} - [{nameof(Message)}] was updated.", request);
 
             return MediatR.Unit.Value;
         }
