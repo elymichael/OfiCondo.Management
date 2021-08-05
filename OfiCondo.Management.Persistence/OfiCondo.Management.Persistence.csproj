@@ -14,8 +14,4 @@
     <ProjectReference Include="..\OfiCondo.Management.Domain\OfiCondo.Management.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

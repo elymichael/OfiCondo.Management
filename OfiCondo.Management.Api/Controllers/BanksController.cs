@@ -10,7 +10,6 @@
     using OfiCondo.Management.Application.Features.Banks.Queries.List;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]

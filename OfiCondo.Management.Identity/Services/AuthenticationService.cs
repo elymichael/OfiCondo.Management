@@ -56,6 +56,20 @@
             return response;
         }
 
+        public List<AuthorizedUsers> GetAllAcounts()
+        {
+            return _userManager.Users.Select(x => new AuthorizedUsers 
+            { 
+               Email = x.Email, 
+               UserName = x.UserName, 
+               EmailConfirmed = x.EmailConfirmed, 
+               Id = x.Id,
+               FirstName = x.FirstName,
+               LastName = x.LastName 
+            }
+            ).ToList();
+        }
+
         public async Task<RegistrationResponse> RegisterAsync(RegistrationRequest request)
         {
             var existingUser = await _userManager.FindByNameAsync(request.UserName);

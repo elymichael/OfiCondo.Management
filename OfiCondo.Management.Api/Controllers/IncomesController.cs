@@ -45,7 +45,7 @@
             return Ok(response);
         }
 
-        [HttpPut(Name = "UpdateCategory")]
+        [HttpPut(Name = "UpdateIncome")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
@@ -55,7 +55,7 @@
             return NoContent();
         }
 
-        [HttpDelete("{id}", Name = "DeleteCategory")]
+        [HttpDelete("{id}", Name = "DeleteIncome")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]

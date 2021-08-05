@@ -32,20 +32,20 @@
         }
 
 
-        [HttpGet("{id}", Name = "GetCategoryById")]
+        [HttpGet("{id}", Name = "GetExpenseById")]
         public async Task<ActionResult<ExpenseDetailVm>> GetItemById(Guid id)
         {
             var getEventDetailQuery = new GetExpenseDetailQuery() { ExpenseId = id };
             return Ok(await _mediator.Send(getEventDetailQuery));
         }
-        [HttpPost(Name = "AddCategory")]
+        [HttpPost(Name = "AddExpense")]
         public async Task<ActionResult<ActionResult<Guid>>> Create([FromBody] CreateExpenseCommand createItemCommand)
         {
             var response = await _mediator.Send(createItemCommand);
             return Ok(response);
         }
 
-        [HttpPut(Name = "UpdateCategory")]
+        [HttpPut(Name = "UpdateExpense")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
@@ -55,7 +55,7 @@
             return NoContent();
         }
 
-        [HttpDelete("{id}", Name = "DeleteCategory")]
+        [HttpDelete("{id}", Name = "DeleteExpense")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]

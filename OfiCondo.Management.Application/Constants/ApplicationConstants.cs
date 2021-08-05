@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OfiCondo.Management.Application.Constants
+﻿namespace OfiCondo.Management.Application.Constants
 {
     public static class ApplicationConstants
     {
@@ -19,5 +15,7 @@ namespace OfiCondo.Management.Application.Constants
         public const string OfiCondoIdentityConnectionString = "OfiCondoIdentityConnectionString";
 
         public const string EmailTo = "gill@snowball.be";
+
+        public const string ApiKeyname = "ApiKey";
     }
 }

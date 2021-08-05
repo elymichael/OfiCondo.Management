@@ -15,6 +15,8 @@
         public string UserName { get; set; }
         [Required]
         [MinLength(6)]
-        public string Password { get; set; }
+        public string Password { get; set; }        
+        [MinLength(20)]
+        public string Phone { get; set; }
     }
 }

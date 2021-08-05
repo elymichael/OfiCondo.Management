@@ -32,8 +32,7 @@
         public DateTime? DateEnd { get; set; }
         /// <summary>
         /// Relation between Condominium and Fee.
-        /// </summary>
-        [Required]
+        /// </summary>        
         public Guid? CondominiumId { get; set; }
         /// <summary>
         /// Relation between Fee / Condominum

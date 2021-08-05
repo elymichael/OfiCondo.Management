@@ -36,11 +36,30 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(OfiCondoDbContext).Assembly);
-            // Add Payment Methods initial data.
-            AddPaymentMethods(modelBuilder);
-            // Add Category initial data.
-            AddCategory(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder
+                .ApplyConfigurationsFromAssembly(typeof(OfiCondoDbContext).Assembly)
+                .Initialize();
+
+            modelBuilder.Entity<Condominium>().ToTable("Condominia")
+               .HasMany(c => c.Units);               
+                
+            modelBuilder.Entity<Account>().ToTable("Accounts")
+                .HasMany(c => c.Condominia);
+
+            modelBuilder.Entity<Attachment>().ToTable("Attachments");
+            modelBuilder.Entity<Bank>().ToTable("Banks");
+            modelBuilder.Entity<Category>().ToTable("Categories");
+            modelBuilder.Entity<Expense>().ToTable("Expenses");
+            modelBuilder.Entity<Fee>().ToTable("Fees");
+            modelBuilder.Entity<Income>().ToTable("Incomes");
+            modelBuilder.Entity<Message>().ToTable("Messages");
+            modelBuilder.Entity<Minute>().ToTable("Minutes");
+            modelBuilder.Entity<Owner>().ToTable("Owners");
+            modelBuilder.Entity<Payee>().ToTable("Payees");
+            modelBuilder.Entity<PaymentMethod>().ToTable("PaymentMethods");
+            modelBuilder.Entity<Unit>().ToTable("Units");
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -60,77 +79,6 @@
                 }
             }
             return base.SaveChangesAsync(cancellationToken);
-        }
-
-        private void AddPaymentMethods(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<PaymentMethod>().HasData(new PaymentMethod
-            {
-                PaymentMethodId = 1,
-                Name = "TARJETA DE CREDITO"
-            });
-
-            modelBuilder.Entity<PaymentMethod>().HasData(new PaymentMethod
-            {
-                PaymentMethodId = 2,
-                Name = "CHEQUE"
-            });
-
-            modelBuilder.Entity<PaymentMethod>().HasData(new PaymentMethod
-            {
-                PaymentMethodId = 3,
-                Name = "EFECTIVO"
-            });
-
-            modelBuilder.Entity<PaymentMethod>().HasData(new PaymentMethod
-            {
-                PaymentMethodId = 4,
-                Name = "TRANSFERENCIA"
-            });
-        }
-
-        private void AddCategory(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Category>().HasData(new Category
-            {
-                CategoryId = Guid.NewGuid(),
-                Name = "NOMINA"                
-            });
-            modelBuilder.Entity<Category>().HasData(new Category
-            {
-                CategoryId = Guid.NewGuid(),
-                Name = "GASTO GENERAL"
-            });
-            modelBuilder.Entity<Category>().HasData(new Category
-            {
-                CategoryId = Guid.NewGuid(),
-                Name = "GAS"
-            });
-            modelBuilder.Entity<Category>().HasData(new Category
-            {
-                CategoryId = Guid.NewGuid(),
-                Name = "ENERGIA ELECTRICA"
-            });
-            modelBuilder.Entity<Category>().HasData(new Category
-            {
-                CategoryId = Guid.NewGuid(),
-                Name = "AGUA"
-            });
-            modelBuilder.Entity<Category>().HasData(new Category
-            {
-                CategoryId = Guid.NewGuid(),
-                Name = "LIMPIEZA"
-            });
-            modelBuilder.Entity<Category>().HasData(new Category
-            {
-                CategoryId = Guid.NewGuid(),
-                Name = "MANTENIMIENTO"
-            });
-            modelBuilder.Entity<Category>().HasData(new Category
-            {
-                CategoryId = Guid.NewGuid(),
-                Name = "REPARACION"
-            });
         }
     }
 }

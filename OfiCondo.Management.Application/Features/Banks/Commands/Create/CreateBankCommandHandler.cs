@@ -3,10 +3,8 @@
     using AutoMapper;
     using MediatR;
     using Microsoft.Extensions.Logging;
-    using OfiCondo.Management.Application.Constants;
     using OfiCondo.Management.Application.Contracts.Infrastructure;
     using OfiCondo.Management.Application.Contracts.Persistence;
-    using OfiCondo.Management.Application.Models.Mail;
     using OfiCondo.Management.Domain.Entities;
     using System;
     using System.Threading;

@@ -19,7 +19,7 @@
 
         public async Task<FeeDetailVm> Handle(GetFeeDetailQuery request, CancellationToken cancellationToken)
         {
-            var @item = await _baseRepository.GetByIdAsync(request.BankId);
+            var @item = await _baseRepository.GetByIdAsync(request.FeeId);
             var itemDetailDto = _mapper.Map<FeeDetailVm>(@item);
 
             return itemDetailDto;
