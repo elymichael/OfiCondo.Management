@@ -11,11 +11,12 @@
 
     public class FeesUnitTests : BaseController
     {
+        private readonly string controllerName = "Fees";
         public FeesUnitTests(CustomWebApplicationFactory<Startup> factory) : base(factory) { }
         [Fact]
         public async Task ReturnSuccessResult()
         {
-            string response = await base.ExecEndPoint("/api/Fees/all");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/all");
 
             var result = JsonConvert.DeserializeObject<List<FeeListVm>>(response);
 
@@ -25,7 +26,7 @@
         [Fact]
         public async Task ReturnSuccessResultByID()
         {
-            string response = await base.ExecEndPoint($"/api/Fees/{ConstantKeyValue.FeeID[0]}");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/{ConstantKeyValue.FeeID[0]}");
 
             var result = JsonConvert.DeserializeObject<FeeDetailVm>(response);
 

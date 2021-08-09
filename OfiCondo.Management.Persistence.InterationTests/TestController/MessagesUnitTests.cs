@@ -11,11 +11,12 @@
 
     public class MessagesUnitTests: BaseController
     {
+        private readonly string controllerName = "Messages";
         public MessagesUnitTests(CustomWebApplicationFactory<Startup> factory) : base(factory) { }
         [Fact]
         public async Task ReturnSuccessResult()
         {
-            string response = await base.ExecEndPoint("/api/Messages/all");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/all");
 
             var result = JsonConvert.DeserializeObject<List<MessageListVm>>(response);
 
@@ -25,7 +26,7 @@
         [Fact]
         public async Task ReturnSuccessResultByID()
         {
-            string response = await base.ExecEndPoint($"/api/Messages/{ConstantKeyValue.MessageID}");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/{ConstantKeyValue.MessageID}");
 
             var result = JsonConvert.DeserializeObject<MessageDetailVm>(response);
 

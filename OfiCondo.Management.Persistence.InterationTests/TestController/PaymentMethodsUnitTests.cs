@@ -11,12 +11,13 @@
 
     public class PaymentMethodsUnitTests : BaseController
     {
+        private readonly string controllerName = "PaymentMethods";
         public PaymentMethodsUnitTests(CustomWebApplicationFactory<Startup> factory) : base(factory) { }
 
         [Fact]
         public async Task ReturnSuccessResult()
         {
-            string response = await base.ExecEndPoint("/api/PaymentMethods/all");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/all");
 
             var result = JsonConvert.DeserializeObject<List<PaymentMethodListVm>>(response);
 
@@ -27,7 +28,7 @@
         [Fact]
         public async Task ReturnSuccessResultByID()
         {
-            string response = await base.ExecEndPoint("/api/PaymentMethods/1");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/1");
 
             var result = JsonConvert.DeserializeObject<PaymentMethodDetailVm>(response);
 

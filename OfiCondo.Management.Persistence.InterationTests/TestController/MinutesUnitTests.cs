@@ -11,11 +11,12 @@
 
     public class MinutesUnitTests : BaseController
     {
+        private readonly string controllerName = "Minutes";
         public MinutesUnitTests(CustomWebApplicationFactory<Startup> factory) : base(factory) { }
         [Fact]
         public async Task ReturnSuccessResult()
         {
-            string response = await base.ExecEndPoint("/api/Minutes/all");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/all");
 
             var result = JsonConvert.DeserializeObject<List<MinuteListVm>>(response);
 
@@ -25,7 +26,7 @@
         [Fact]
         public async Task ReturnSuccessResultByID()
         {
-            string response = await base.ExecEndPoint($"/api/Minutes/{ConstantKeyValue.MinuteID}");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/{ConstantKeyValue.MinuteID}");
 
             var result = JsonConvert.DeserializeObject<MinuteDetailVm>(response);
 

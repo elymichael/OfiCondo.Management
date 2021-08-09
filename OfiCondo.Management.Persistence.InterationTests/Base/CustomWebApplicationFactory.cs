@@ -20,12 +20,17 @@
                 {
                     options.UseInMemoryDatabase("OfiCondoDbContextInMemoryTest")
                             .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-                });
+                }, 
+                contextLifetime: ServiceLifetime.Transient,
+                optionsLifetime: ServiceLifetime.Transient);
+
                 // Adding Database Identity Context.
                 services.AddDbContext<OfiCondoIdentityDbContext>(options =>
                 {
                     options.UseInMemoryDatabase("OfiCondoIdentityDbContextInMemoryTest");
-                });
+                }, 
+                contextLifetime: ServiceLifetime.Transient, 
+                optionsLifetime: ServiceLifetime.Transient);
 
                 var sp = services.BuildServiceProvider();
 

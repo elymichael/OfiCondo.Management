@@ -11,6 +11,7 @@
 
     public class BanksUnitTests: IClassFixture<CustomWebApplicationFactory<Startup>>
     {
+        private readonly string controllerName = "Banks";
         private readonly CustomWebApplicationFactory<Startup> _factory;
         public BanksUnitTests(CustomWebApplicationFactory<Startup> factory)
         {
@@ -22,7 +23,7 @@
         {
             var client = _factory.GetAnonymousClient();
 
-            var response = await client.GetAsync("/api/banks/all");
+            var response = await client.GetAsync($"/api/{controllerName}/all");
 
             response.EnsureSuccessStatusCode();
 
@@ -38,7 +39,7 @@
         {
             var client = _factory.GetAnonymousClient();
 
-            var response = await client.GetAsync($"/api/banks/{ConstantKeyValue.BankID}");
+            var response = await client.GetAsync($"/api/{controllerName}/{ConstantKeyValue.BankID}");
 
             response.EnsureSuccessStatusCode();
 

@@ -11,11 +11,12 @@
 
     public class CategoriesUnitTests : BaseController
     {
+        private readonly string controllerName = "Categories";
         public CategoriesUnitTests(CustomWebApplicationFactory<Startup> factory) : base(factory) { }
         [Fact]
         public async Task ReturnSuccessResult()
         {
-            string response = await base.ExecEndPoint("/api/Categories/all");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/all");
 
             var result = JsonConvert.DeserializeObject<List<CategoryListVm>>(response);
 
@@ -25,7 +26,7 @@
         [Fact]
         public async Task ReturnSuccessResultByID()
         {
-            string response = await base.ExecEndPoint($"/api/Categories/{ConstantKeyValue.CategoryID[0]}");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/{ConstantKeyValue.CategoryID[0]}");
 
             var result = JsonConvert.DeserializeObject<CategoryDetailVm>(response);
 

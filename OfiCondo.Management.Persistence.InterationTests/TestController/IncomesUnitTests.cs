@@ -11,11 +11,12 @@
 
     public class IncomesUnitTests : BaseController
     {
+        private readonly string controllerName = "Incomes";
         public IncomesUnitTests(CustomWebApplicationFactory<Startup> factory) : base(factory) { }
         [Fact]
         public async Task ReturnSuccessResult()
         {
-            string response = await base.ExecEndPoint("/api/Incomes/all");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/all");
 
             var result = JsonConvert.DeserializeObject<List<IncomeListVm>>(response);
 
@@ -25,7 +26,7 @@
         [Fact]
         public async Task ReturnSuccessResultByID()
         {
-            string response = await base.ExecEndPoint($"/api/Incomes/{ConstantKeyValue.IncomeID}");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/{ConstantKeyValue.IncomeID}");
 
             var result = JsonConvert.DeserializeObject<IncomeDetailVm>(response);
 

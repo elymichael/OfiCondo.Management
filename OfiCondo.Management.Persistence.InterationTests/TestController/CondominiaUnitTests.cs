@@ -11,11 +11,12 @@
 
     public class CondominiaUnitTests : BaseController
     {
+        private readonly string controllerName = "Condominia";
         public CondominiaUnitTests(CustomWebApplicationFactory<Startup> factory) : base(factory) { }
         [Fact]
         public async Task ReturnSuccessResult()
         {
-            string response = await base.ExecEndPoint("/api/Condominia/all");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/all");
 
             var result = JsonConvert.DeserializeObject<List<CondominiumListVm>>(response);
 
@@ -25,7 +26,7 @@
         [Fact]
         public async Task ReturnSuccessResultByID()
         {
-            string response = await base.ExecEndPoint($"/api/Condominia/{ConstantKeyValue.CondominiumID}");
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/{ConstantKeyValue.CondominiumID}");
 
             var result = JsonConvert.DeserializeObject<CondominiumDetailVm>(response);
 

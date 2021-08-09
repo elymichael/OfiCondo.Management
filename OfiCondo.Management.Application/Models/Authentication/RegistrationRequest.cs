@@ -16,7 +16,7 @@
         [Required]
         [MinLength(6)]
         public string Password { get; set; }        
-        [MinLength(20)]
+        [MinLength(10), MaxLength(20)]
         public string Phone { get; set; }
     }
 }
