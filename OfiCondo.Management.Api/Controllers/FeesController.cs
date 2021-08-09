@@ -3,7 +3,6 @@
     using MediatR;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using OfiCondo.Management.Application.Features.Banks.Queries.Detail;
     using OfiCondo.Management.Application.Features.Fees.Commands.Create;
     using OfiCondo.Management.Application.Features.Fees.Commands.Delete;
     using OfiCondo.Management.Application.Features.Fees.Commands.Update;
@@ -15,11 +14,11 @@
 
     [Route("api/[controller]")]
     [ApiController]
-    public class FeeController : ControllerBase
+    public class FeesController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public FeeController(IMediator mediator)
+        public FeesController(IMediator mediator)
         {
             _mediator = mediator;
         }

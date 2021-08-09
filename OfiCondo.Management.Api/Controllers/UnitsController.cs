@@ -3,7 +3,6 @@
     using MediatR;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using OfiCondo.Management.Application.Features.Condominia.Queries.Detail;
     using OfiCondo.Management.Application.Features.Units.Commands.Create;
     using OfiCondo.Management.Application.Features.Units.Commands.Delete;
     using OfiCondo.Management.Application.Features.Units.Commands.Update;
@@ -11,8 +10,8 @@
     using OfiCondo.Management.Application.Features.Units.Queries.List;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
     [Route("api/[controller]")]
     [ApiController]
     public class UnitsController : ControllerBase
@@ -35,7 +34,7 @@
         [HttpGet("{id}", Name = "GetUnitById")]
         public async Task<ActionResult<UnitDetailVm>> GetItemById(Guid id)
         {
-            var getEventDetailQuery = new GetCondominiumDetailQuery() { CondominiumId = id };
+            var getEventDetailQuery = new GetUnitDetailQuery() { UnitId = id };
             return Ok(await _mediator.Send(getEventDetailQuery));
         }
 

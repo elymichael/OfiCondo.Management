@@ -10,10 +10,10 @@
 
     public class GetFeeListQueryHandler : IRequestHandler<GetFeeListQuery, List<FeeListVm>>
     {
-        private readonly IBankRepository _baseRepository;
+        private readonly IFeeRepository _baseRepository;
         private readonly IMapper _mapper;
 
-        public GetFeeListQueryHandler(IMapper mapper, IBankRepository baseRepository)
+        public GetFeeListQueryHandler(IMapper mapper, IFeeRepository baseRepository)
         {
             _mapper = mapper;
             _baseRepository = baseRepository;

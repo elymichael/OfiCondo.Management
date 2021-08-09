@@ -1,16 +1,14 @@
-﻿namespace OfiCondo.Management.Identity
+﻿namespace OfiCondo.Management.Persistence.InterationTests.Base.Context
 {
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.EntityFrameworkCore;
+    using OfiCondo.Management.Domain.Entities;
+    using OfiCondo.Management.Identity;
     using OfiCondo.Management.Identity.Models;
     using System;
-
-    public static class DbIdentityInitializer
+    public class IdentityContextFactory
     {
-        public static void Initialize(ModelBuilder modelBuilder)
-        {
-            // User ID
-            string userAdminID = Guid.NewGuid().ToString();
+        public static void Initialize(OfiCondoIdentityDbContext ofiCondoDbContext, string userAdminID)
+        {            
             // Roles definition.
             var roles = (
                 Guid.NewGuid().ToString(),
@@ -19,32 +17,32 @@
                 Guid.NewGuid().ToString()
             );
 
-            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole 
-            { 
+            ofiCondoDbContext.Roles.Add(new IdentityRole
+            {
                 Id = roles.Item1,
-                Name = "Admin", 
-                NormalizedName = "Admin".ToUpper() 
+                Name = "Admin",
+                NormalizedName = "Admin".ToUpper()
             });
 
-            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole 
-            { 
+            ofiCondoDbContext.Roles.Add(new IdentityRole
+            {
                 Id = roles.Item2,
-                Name = "Developer", 
-                NormalizedName = "Developer".ToUpper() 
+                Name = "Developer",
+                NormalizedName = "Developer".ToUpper()
             });
 
-            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole 
-            { 
+            ofiCondoDbContext.Roles.Add(new IdentityRole
+            {
                 Id = roles.Item3,
-                Name = "Owner", 
-                NormalizedName = "Owner".ToUpper() 
+                Name = "Owner",
+                NormalizedName = "Owner".ToUpper()
             });
 
-            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole 
-            { 
+            ofiCondoDbContext.Roles.Add(new IdentityRole
+            {
                 Id = roles.Item4,
-                Name = "User", 
-                NormalizedName = "User".ToUpper() 
+                Name = "User",
+                NormalizedName = "User".ToUpper()
             });
 
             var user = new ApplicationUser
@@ -54,7 +52,7 @@
                 EmailConfirmed = true,
                 NormalizedEmail = "elymichael@sitcsrd.com".ToUpper(),
                 UserName = "administrador",
-                NormalizedUserName = "administrador".ToUpper(),                
+                NormalizedUserName = "administrador".ToUpper(),
                 SecurityStamp = string.Empty,
                 FirstName = "Admin",
                 LastName = "Admin",
@@ -62,32 +60,32 @@
 
             user.PasswordHash = PassGenerate(user, "administrador");
 
-            modelBuilder.Entity<ApplicationUser>().HasData(user);
+            ofiCondoDbContext.Users.Add(user);
 
-            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            ofiCondoDbContext.UserRoles.Add(new IdentityUserRole<string>
             {
-                RoleId = roles.Item1, UserId = userAdminID
+                RoleId = roles.Item1,
+                UserId = userAdminID
             });
 
-            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            ofiCondoDbContext.UserRoles.Add(new IdentityUserRole<string>
             {
                 RoleId = roles.Item2,
                 UserId = userAdminID
             });
 
-            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            ofiCondoDbContext.UserRoles.Add(new IdentityUserRole<string>
             {
                 RoleId = roles.Item3,
                 UserId = userAdminID
             });
 
-            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            ofiCondoDbContext.UserRoles.Add(new IdentityUserRole<string>
             {
                 RoleId = roles.Item4,
                 UserId = userAdminID
             });
         }
-
         private static string PassGenerate(ApplicationUser user, string password)
         {
             var passHash = new PasswordHasher<ApplicationUser>();

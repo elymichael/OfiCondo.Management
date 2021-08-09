@@ -1,15 +1,13 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using OfiCondo.Management.Application.Features.PaymentMethod.Queries.Detail;
-using OfiCondo.Management.Application.Features.PaymentMethod.Queries.List;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace OfiCondo.Management.Api.Controllers
+﻿namespace OfiCondo.Management.Api.Controllers
 {
+    using MediatR;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using OfiCondo.Management.Application.Features.PaymentMethod.Queries.Detail;
+    using OfiCondo.Management.Application.Features.PaymentMethod.Queries.List;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
     [Route("api/[controller]")]
     [ApiController]
     public class PaymentMethodsController : ControllerBase

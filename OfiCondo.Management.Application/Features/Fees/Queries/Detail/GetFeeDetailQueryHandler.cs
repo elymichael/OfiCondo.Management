@@ -9,9 +9,9 @@
 
     public class GetFeeDetailQueryHandler : IRequestHandler<GetFeeDetailQuery, FeeDetailVm>
     {
-        private readonly IAsyncRepository<Bank> _baseRepository;
+        private readonly IAsyncRepository<Fee> _baseRepository;
         private readonly IMapper _mapper;
-        public GetFeeDetailQueryHandler(IMapper mapper, IAsyncRepository<Bank> baseRepository)
+        public GetFeeDetailQueryHandler(IMapper mapper, IAsyncRepository<Fee> baseRepository)
         {
             _baseRepository = baseRepository;
             _mapper = mapper;

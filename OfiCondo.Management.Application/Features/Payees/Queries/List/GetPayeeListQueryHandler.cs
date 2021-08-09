@@ -10,10 +10,10 @@
 
     public class GetPayeeListQueryHandler : IRequestHandler<GetPayeeListQuery, List<PayeeListVm>>
     {
-        private readonly IBankRepository _baseRepository;
+        private readonly IPayeeRepository _baseRepository;
         private readonly IMapper _mapper;
 
-        public GetPayeeListQueryHandler(IMapper mapper, IBankRepository baseRepository)
+        public GetPayeeListQueryHandler(IMapper mapper, IPayeeRepository baseRepository)
         {
             _mapper = mapper;
             _baseRepository = baseRepository;

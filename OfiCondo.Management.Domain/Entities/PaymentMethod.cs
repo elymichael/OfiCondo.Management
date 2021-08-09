@@ -3,13 +3,14 @@
     using OfiCondo.Management.Domain.Common;
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
 
     public class PaymentMethod: AuditableEntity
     {
         /// <summary>
         /// Identifier.
         /// </summary>
-        [Key]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PaymentMethodId { get; set; }
         /// <summary>
         /// Name of Payment Method.
