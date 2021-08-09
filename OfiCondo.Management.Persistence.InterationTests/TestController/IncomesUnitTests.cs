@@ -5,6 +5,7 @@
     using OfiCondo.Management.Application.Features.Incomes.Queries.Detail;
     using OfiCondo.Management.Application.Features.Incomes.Queries.List;
     using OfiCondo.Management.Persistence.InterationTests.Base;
+    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Xunit;
@@ -32,6 +33,26 @@
 
             Assert.IsType<IncomeDetailVm>(result);
             Assert.NotNull(result);
+        }
+        public async Task ReturnSuccessResultInsert()
+        {
+            object result = null;
+
+            Assert.NotNull(result);
+        }
+        [Fact]
+        public async Task ReturnSuccessResultUpdate()
+        {
+            object result = null;
+
+            Assert.NotNull(result);
+        }
+        [Fact]
+        public async Task ReturnSuccessResultDelete()
+        {
+            Guid id = await base.ExecDeleteEndPoint<Guid>($"/api/{controllerName}/{ConstantKeyValue.IncomeID}");
+
+            Assert.IsType<Guid>(id);
         }
     }
 }

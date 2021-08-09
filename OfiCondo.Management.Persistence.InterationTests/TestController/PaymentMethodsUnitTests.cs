@@ -35,5 +35,25 @@
             Assert.IsType<PaymentMethodDetailVm>(result);
             Assert.NotNull(result);
         }
+        public async Task ReturnSuccessResultInsert()
+        {
+            object result = null;
+
+            Assert.NotNull(result);
+        }
+        [Fact]
+        public async Task ReturnSuccessResultUpdate()
+        {
+            object result = null;
+
+            Assert.NotNull(result);
+        }
+        [Fact]
+        public async Task ReturnSuccessResultDelete()
+        {
+            int id = await base.ExecDeleteEndPoint<int>($"/api/{controllerName}/{ConstantKeyValue.PaymentMethodID}");
+
+            Assert.IsType<int>(id);
+        }
     }
 }

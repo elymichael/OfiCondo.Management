@@ -5,6 +5,7 @@
     using OfiCondo.Management.Application.Features.Minutes.Queries.Detail;
     using OfiCondo.Management.Application.Features.Minutes.Queries.List;
     using OfiCondo.Management.Persistence.InterationTests.Base;
+    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Xunit;
@@ -32,6 +33,26 @@
 
             Assert.IsType<MinuteDetailVm>(result);
             Assert.NotNull(result);
+        }
+        public async Task ReturnSuccessResultInsert()
+        {
+            object result = null;
+
+            Assert.NotNull(result);
+        }
+        [Fact]
+        public async Task ReturnSuccessResultUpdate()
+        {
+            object result = null;
+
+            Assert.NotNull(result);
+        }
+        [Fact]
+        public async Task ReturnSuccessResultDelete()
+        {
+            Guid id = await base.ExecDeleteEndPoint<Guid>($"/api/{controllerName}/{ConstantKeyValue.MinuteID}");
+
+            Assert.IsType<Guid>(id);
         }
     }
 }
