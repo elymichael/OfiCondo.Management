@@ -69,7 +69,7 @@ body {
         .wrapper .sidebar ul li a.active {
             color: #0c7db1;
             background: white;
-            border-right: 2px solid rgb(5, 68, 104);
+            border-right:2px solid rgb(5, 68, 104);
         }
 
             .wrapper .sidebar ul li a:hover .icon,
@@ -117,8 +117,21 @@ body {
             padding: 0px 0px 0px 25px
         }
 
+.wrapper .content {
+    margin: 10px 10px 10px 225px;
+}
+    .wrapper .content .logo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 body.active .wrapper .sidebar {
     left: -225px;
+}
+
+body.active .wrapper .content {
+    margin-left: 10px;
 }
 
 body.active .wrapper .section {
