@@ -36,28 +36,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfiCondo.Management.Persist
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{F2E09363-18C4-4C59-BC30-B24B5E4E5BB2}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebApp", "WebApp\", "{C1FD1449-165A-4B60-A016-85E539348434}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_1240"
-		Debug.AspNetCompiler.PhysicalPath = "WebApp\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1240\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_1240"
-		Release.AspNetCompiler.PhysicalPath = "WebApp\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1240\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "1240"
-		SlnRelativePath = "WebApp\"
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oficondo.Management.Web.App", "Oficondo.Management.Web.App\Oficondo.Management.Web.App.csproj", "{F9CB20E4-B484-426C-BA99-E26AB8414540}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oficondo.Management.Web.App", "Oficondo.Management.Web.App\Oficondo.Management.Web.App.csproj", "{48EE6CDD-6192-40FB-BA77-B798A38F62D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,14 +72,10 @@ Global
 		{7E54847E-B41C-4C68-B4E6-1852F6734B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E54847E-B41C-4C68-B4E6-1852F6734B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E54847E-B41C-4C68-B4E6-1852F6734B12}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1FD1449-165A-4B60-A016-85E539348434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1FD1449-165A-4B60-A016-85E539348434}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1FD1449-165A-4B60-A016-85E539348434}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1FD1449-165A-4B60-A016-85E539348434}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{F9CB20E4-B484-426C-BA99-E26AB8414540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9CB20E4-B484-426C-BA99-E26AB8414540}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9CB20E4-B484-426C-BA99-E26AB8414540}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9CB20E4-B484-426C-BA99-E26AB8414540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48EE6CDD-6192-40FB-BA77-B798A38F62D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48EE6CDD-6192-40FB-BA77-B798A38F62D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48EE6CDD-6192-40FB-BA77-B798A38F62D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48EE6CDD-6192-40FB-BA77-B798A38F62D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,8 +93,7 @@ Global
 		{BE474290-9E6A-44FC-AEB9-29F28F53A39C} = {60323C8B-36FA-40FE-8AF8-2242077FD4AE}
 		{7E54847E-B41C-4C68-B4E6-1852F6734B12} = {8C5A0FB2-5D24-43AF-9556-70219E1FB5BA}
 		{F2E09363-18C4-4C59-BC30-B24B5E4E5BB2} = {4FBF1C73-018F-4EFA-903A-62BACA156E7B}
-		{C1FD1449-165A-4B60-A016-85E539348434} = {F2E09363-18C4-4C59-BC30-B24B5E4E5BB2}
-		{F9CB20E4-B484-426C-BA99-E26AB8414540} = {F2E09363-18C4-4C59-BC30-B24B5E4E5BB2}
+		{48EE6CDD-6192-40FB-BA77-B798A38F62D1} = {F2E09363-18C4-4C59-BC30-B24B5E4E5BB2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6CA54231-3EA8-415D-B9AA-4DA5ACB09D6B}

@@ -2,12 +2,17 @@
 {
     using Blazored.LocalStorage;
     using Microsoft.AspNetCore.Components.Authorization;
+    using Microsoft.AspNetCore.Http;
     using Oficondo.Management.Web.App.Auth;
     using Oficondo.Management.Web.App.Constants;
     using Oficondo.Management.Web.App.Contracts;
     using Oficondo.Management.Web.App.Model;
     using Oficondo.Management.Web.App.Services.Base;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Net.Http.Headers;
+    using System.Security.Claims;
     using System.Threading.Tasks;
 
     public class AuthenticationService: BaseDataService, IAuthenticationService
