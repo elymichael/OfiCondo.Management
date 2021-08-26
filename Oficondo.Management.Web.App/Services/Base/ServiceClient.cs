@@ -22,10 +22,7 @@
 
     public partial class Client : BaseClient, IClient
     {
-
-        public Client(HttpClient httpClient) : base(string.Empty, httpClient) { }
-
-        public Client(string baseUrl, HttpClient httpClient) : base(baseUrl, httpClient) { }
+        public Client(HttpClient httpClient) : base(httpClient.BaseAddress.AbsoluteUri, httpClient) { }
 
         public Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest body)
         {

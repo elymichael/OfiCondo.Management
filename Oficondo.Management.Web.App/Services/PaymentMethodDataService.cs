@@ -20,18 +20,18 @@
         {
             await AddBearerToken();
 
-            var allPaymentMethods = await _client.GetAllPaymentMethodsAsync();
-            var mappedPaymentMethods = _mapper.Map<ICollection<PaymentMethodViewModel>>(allPaymentMethods);
-            return mappedPaymentMethods.ToList();
+            var allItems = await _client.GetAllPaymentMethodsAsync();
+            var mappedItems = _mapper.Map<ICollection<PaymentMethodViewModel>>(allItems);
+            return mappedItems.ToList();
         }
 
         public async Task<PaymentMethodViewModel> GetPaymentMethodById(int id)
         {
             await AddBearerToken();
 
-            var allPaymentMethods = await _client.GetPaymentMethodByIdAsync(id);
-            var mappedPaymentMethods = _mapper.Map<PaymentMethodViewModel>(allPaymentMethods);
-            return mappedPaymentMethods;
+            var item = await _client.GetPaymentMethodByIdAsync(id);
+            var mappedItem = _mapper.Map<PaymentMethodViewModel>(item);
+            return mappedItem;
         }
     }
 }
