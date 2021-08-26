@@ -57,7 +57,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebApp", "WebApp\", "{C1FD1
 		SlnRelativePath = "WebApp\"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oficondo.Management.Web.App", "Oficondo.Management.Web.App\Oficondo.Management.Web.App.csproj", "{F9CB20E4-B484-426C-BA99-E26AB8414540}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oficondo.Management.Web.App", "Oficondo.Management.Web.App\Oficondo.Management.Web.App.csproj", "{F9CB20E4-B484-426C-BA99-E26AB8414540}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,12 +1,18 @@
+using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Oficondo.Management.Web.App.Auth;
+using Oficondo.Management.Web.App.Contracts;
+using Oficondo.Management.Web.App.Services.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Oficondo.Management.Web.App
@@ -23,7 +29,17 @@ namespace Oficondo.Management.Web.App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddRazorPages();            
+            //services.AddBlazoredLocalStorage();
+            //services.AddAuthenticationCore();
+            //services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+
+            //services.AddSingleton(new HttpClient
+            //{
+            //    BaseAddress = new Uri("https://localhost:5001")
+            //});
+
+            //services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:5001"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
