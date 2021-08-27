@@ -36,7 +36,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfiCondo.Management.Persist
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{F2E09363-18C4-4C59-BC30-B24B5E4E5BB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oficondo.Management.Web.App", "Oficondo.Management.Web.App\Oficondo.Management.Web.App.csproj", "{48EE6CDD-6192-40FB-BA77-B798A38F62D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oficondo.Management.Web.App", "Oficondo.Management.Web.App\Oficondo.Management.Web.App.csproj", "{48EE6CDD-6192-40FB-BA77-B798A38F62D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
