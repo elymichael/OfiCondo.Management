@@ -18,6 +18,7 @@ namespace Oficondo.Management.Web.App
 {
     public class Program
     {
+        private const string apiUrl = "https://localhost:44312";
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -31,10 +32,10 @@ namespace Oficondo.Management.Web.App
 
             builder.Services.AddSingleton(new HttpClient
             {
-                BaseAddress = new Uri("https://localhost:44312")
+                BaseAddress = new Uri(apiUrl)
             });
 
-            builder.Services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:44312"));
+            builder.Services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri(apiUrl));
 
             builder.Services.AddScoped<IPaymentMethodDataService, PaymentMethodDataService>();
             builder.Services.AddScoped<IBankDataService, BankDataService>();
