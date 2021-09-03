@@ -5,7 +5,7 @@
 
         <h4>Usando esta aplicación puede tener control de sus condominios.</h4>
         <br/>
-        @*<AuthorizeView>
+        <AuthorizeView>
             <Authorized>
                 <button @onclick="Logout">Logout</button>
             </Authorized>
@@ -14,7 +14,7 @@
                 <br/>
                 <button @onclick="NavigateToRegister">Registrate</button>
             </NotAuthorized>
-        </AuthorizeView>*@
+        </AuthorizeView>
         <SurveyPrompt Title="How is Blazor working for you?" />
         <div class="justify-content-center">
             <img src="images/oficondo.png" alt="Oficondo" />

@@ -1,16 +1,10 @@
-﻿using Microsoft.AspNetCore.Components;
-using Oficondo.Management.Web.App.Contracts;
-using Oficondo.Management.Web.App.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Oficondo.Management.Web.App.Pages
+﻿namespace Oficondo.Management.Web.App.Pages
 {
+    using Microsoft.AspNetCore.Components;
+    using Oficondo.Management.Web.App.Contracts;
+    using Oficondo.Management.Web.App.ViewModels;
     public partial class Register
-    {
-        [Inject]
+    {      
         public RegisterViewModel RegisterViewModel { get; set; }
         [Inject]
         public NavigationManager NavigationManager { get; set; }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Oficondo.Management.Web.App.ViewModels
+﻿namespace Oficondo.Management.Web.App.ViewModels
 {
     public class RegisterViewModel
     {
