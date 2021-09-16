@@ -3,9 +3,9 @@
     using Microsoft.AspNetCore.Builder;
     public static class MiddlewareExtensions
     {
-        public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder builder)
+        public static IApplicationBuilder UseCustomLoggingHandler(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<ExceptionHandlerMiddleware>();
+            return builder.UseMiddleware<LoggingHandlerMiddleware>();
         }
     }
 }

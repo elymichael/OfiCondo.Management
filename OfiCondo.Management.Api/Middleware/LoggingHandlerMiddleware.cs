@@ -6,11 +6,11 @@
     using System;
     using System.Net;
     using System.Threading.Tasks;
-    public class ExceptionHandlerMiddleware
+    public class LoggingHandlerMiddleware
     {
         private readonly RequestDelegate _next;
 
-        public ExceptionHandlerMiddleware(RequestDelegate next)
+        public LoggingHandlerMiddleware(RequestDelegate next)
         {
             _next = next;
         }
@@ -32,6 +32,7 @@
             HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError;
             context.Response.ContentType = "application/json";
             var result = string.Empty;
+
             switch (exception)
             {
                 case ValidationException validationException:
@@ -52,13 +53,19 @@
                     break;
             }
 
-            context.Response.StatusCode = (int)httpStatusCode;
             if (result == string.Empty)
             {
-                result = JsonConvert.SerializeObject(new { error = exception.Message });
+                result = exception.Message;
             }
 
-            return context.Response.WriteAsync(result);
+            context.Response.StatusCode = (int)httpStatusCode;
+            var data = JsonConvert.SerializeObject(new
+            {
+                StatusCode = (int)httpStatusCode,
+                ErrorMessage = result
+            });
+
+            return context.Response.WriteAsync(data);
         }
     }
 }

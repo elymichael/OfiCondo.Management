@@ -107,7 +107,7 @@ namespace OfiCondo.Management.Api
             });
 
 
-            app.UseCustomExceptionHandler();
+            app.UseCustomLoggingHandler();
 
             app.UseCors(ApplicationConstants.Open);
 
