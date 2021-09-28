@@ -1,5 +1,5 @@
 # OfiCondo Management Project
-Application created to manage condominiums and apartments.
+Application created to manage condominiums and apartments. This applicatin will handle the administration of the condominia with the apartments and the owner.
 
 ## Working with Database
 ### Create database
