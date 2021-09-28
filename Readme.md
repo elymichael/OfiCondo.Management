@@ -3,6 +3,7 @@ Application created to manage condominiums and apartments. This applicatin will 
 
 ## Working with Database
 ### Create database
+This is the main database of the application, it has the complete logic of the application.
 ```
 Working with Management:
 add-migration InitialMigration -Context OfiCondoDbContext
@@ -10,6 +11,7 @@ update-database -Context OfiCondoDbContext
 ```
 
 ### Create database
+it has the identity configuration to keep the users and json token generated to login in the application.
 ```
 Working with Identity:
 add-migration InitialMigration -Context OfiCondoIdentityDbContext
