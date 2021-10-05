@@ -40,3 +40,5 @@ Pending
 ****
 **** Check validator classes. ****
 ```
+
+https://docs.docker.com/samples/dotnetcore/

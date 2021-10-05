@@ -17,8 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8C5A0FB2-5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{60323C8B-36FA-40FE-8AF8-2242077FD4AE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{3867608B-7C5D-4212-B7B3-0F4BF20378E4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfiCondo.Management.Identity", "OfiCondo.Management.Identity\OfiCondo.Management.Identity.csproj", "{3D06BA35-EB35-4D87-A6F5-C972D91ACEC5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfiCondo.Management.Infrastructure", "OfiCondo.Management.Infrastructure\OfiCondo.Management.Infrastructure.csproj", "{D87182FD-CB7D-40FB-8C80-CD5EEEFAFE99}"
@@ -29,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfiCondo.Management.Api", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14851337-6588-4EDE-9534-45B193577FCF}"
 	ProjectSection(SolutionItems) = preProject
-		Readme.txt = Readme.txt
+		Readme.md = Readme.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfiCondo.Management.Persistence.InterationTests", "OfiCondo.Management.Persistence.InterationTests\OfiCondo.Management.Persistence.InterationTests.csproj", "{7E54847E-B41C-4C68-B4E6-1852F6734B12}"
@@ -40,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oficondo.Management.Web.App
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Support", "Support", "{2DD01E70-DA7F-4B01-9220-03E6FCDEDDDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfiCondo.Management.Support.ApiKeyAuthentication", "OfiCondo.Management.Support.ApiKeyAuthentication\OfiCondo.Management.Support.ApiKeyAuthentication.csproj", "{1AB1FB17-3205-41C3-94F7-F4B765842A7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfiCondo.Management.Support.ApiKeyAuthentication", "OfiCondo.Management.Support.ApiKeyAuthentication\OfiCondo.Management.Support.ApiKeyAuthentication.csproj", "{1AB1FB17-3205-41C3-94F7-F4B765842A7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,7 +92,6 @@ Global
 		{9FFC8E75-65D7-48B2-B6F6-FF7783A749BC} = {4FBF1C73-018F-4EFA-903A-62BACA156E7B}
 		{EBF5FFD5-0335-43C6-8934-4DD5FBA270BB} = {4FBF1C73-018F-4EFA-903A-62BACA156E7B}
 		{60323C8B-36FA-40FE-8AF8-2242077FD4AE} = {4FBF1C73-018F-4EFA-903A-62BACA156E7B}
-		{3867608B-7C5D-4212-B7B3-0F4BF20378E4} = {4FBF1C73-018F-4EFA-903A-62BACA156E7B}
 		{3D06BA35-EB35-4D87-A6F5-C972D91ACEC5} = {EBF5FFD5-0335-43C6-8934-4DD5FBA270BB}
 		{D87182FD-CB7D-40FB-8C80-CD5EEEFAFE99} = {EBF5FFD5-0335-43C6-8934-4DD5FBA270BB}
 		{FF5EAD55-C6FB-4D79-93E3-357ACCA798E3} = {EBF5FFD5-0335-43C6-8934-4DD5FBA270BB}

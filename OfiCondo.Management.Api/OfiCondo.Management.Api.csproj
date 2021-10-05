@@ -30,5 +30,8 @@
     <ProjectReference Include="..\OfiCondo.Management.Persistence\OfiCondo.Management.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="..\.dockerignore" />
+  </ItemGroup>
 
 </Project>
