@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  oficondo.management.api:
+    image: ${DOCKER_REGISTRY-}oficondomanagementapi
+    build:
+      context: .
+      dockerfile: OfiCondo.Management.Api/Dockerfile
