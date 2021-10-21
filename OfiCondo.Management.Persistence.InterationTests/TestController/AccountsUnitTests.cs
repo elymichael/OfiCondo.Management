@@ -4,7 +4,9 @@
     using OfiCondo.Management.Api;
     using OfiCondo.Management.Application.Models.Authentication;
     using OfiCondo.Management.Persistence.InterationTests.Base;
+    using System;
     using System.Collections.Generic;
+    using System.Net.Http;
     using System.Threading.Tasks;
     using Xunit;
     public class AccountsUnitTests: BaseController
@@ -47,10 +49,7 @@
                 UserName = "developer"
             };
 
-            var result = await base.ExecPostEndPoint<RegistrationRequest, RegistrationResponse>($"/api/{controllerName}/Register", data);
-
-            Assert.IsType<RegistrationResponse>(result);
-            Assert.NotNull(result);
+            await Assert.ThrowsAsync<HttpRequestException>(async () => await base.ExecPostEndPoint<RegistrationRequest, RegistrationResponse>($"/api/{controllerName}/Register", data));
         }
     }
 }

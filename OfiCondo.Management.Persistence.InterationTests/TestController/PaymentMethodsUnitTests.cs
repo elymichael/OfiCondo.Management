@@ -1,5 +1,7 @@
 ﻿namespace OfiCondo.Management.Persistence.InterationTests
 {
+    using MediatR;
+    using Moq;
     using Newtonsoft.Json;
     using OfiCondo.Management.Api;
     using OfiCondo.Management.Application.Features.PaymentMethod.Queries.Detail;
@@ -11,7 +13,7 @@
 
     public class PaymentMethodsUnitTests : BaseController
     {
-        private readonly string controllerName = "PaymentMethods";
+        private readonly string controllerName = "PaymentMethods";        
         public PaymentMethodsUnitTests(CustomWebApplicationFactory<Startup> factory) : base(factory) { }
 
         [Fact]
@@ -34,26 +36,6 @@
 
             Assert.IsType<PaymentMethodDetailVm>(result);
             Assert.NotNull(result);
-        }
-        public async Task ReturnSuccessResultInsert()
-        {
-            object result = null;
-
-            Assert.NotNull(result);
-        }
-        [Fact]
-        public async Task ReturnSuccessResultUpdate()
-        {
-            object result = null;
-
-            Assert.NotNull(result);
-        }
-        [Fact]
-        public async Task ReturnSuccessResultDelete()
-        {
-            int id = await base.ExecDeleteEndPoint<int>($"/api/{controllerName}/{ConstantKeyValue.PaymentMethodID}");
-
-            Assert.IsType<int>(id);
         }
     }
 }
