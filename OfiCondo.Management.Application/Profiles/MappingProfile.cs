@@ -1,6 +1,8 @@
 ﻿namespace OfiCondo.Management.Application.Profiles
 {
     using AutoMapper;
+    using OfiCondo.Management.Application.Features.Accounts.Commands.Create;
+    using OfiCondo.Management.Application.Features.Accounts.Commands.Update;
     // Banks
     using OfiCondo.Management.Application.Features.Banks.Commands.Create;
     using OfiCondo.Management.Application.Features.Banks.Commands.Delete;
@@ -143,6 +145,9 @@
             CreateMap<Unit, CreateUnitCommand>().ReverseMap();
             CreateMap<Unit, UpdateUnitCommand>().ReverseMap();
             CreateMap<Unit, DeleteUnitCommand>().ReverseMap();
+
+            CreateMap<Account, CreateAccountCommand>().ReverseMap();
+            CreateMap<Account, UpdateAccountCommand>().ReverseMap();
         }
 
     }

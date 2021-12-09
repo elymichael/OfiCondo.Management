@@ -51,5 +51,16 @@
 
             await Assert.ThrowsAsync<HttpRequestException>(async () => await base.ExecPostEndPoint<RegistrationRequest, RegistrationResponse>($"/api/{controllerName}/Register", data));
         }
+
+        [Fact]
+        public async Task TestAccountById()
+        {
+            string response = await base.ExecGetEndPoint($"/api/{controllerName}/43961c86-2753-4924-8c1e-abc2df47f077");
+
+            var result = JsonConvert.DeserializeObject<AuthorizedUsers>(response);
+
+            Assert.NotNull(result);
+            Assert.IsType<AuthorizedUsers>(result);            
+        }
     }
 }

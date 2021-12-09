@@ -9,5 +9,6 @@
         Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest request);
         Task<RegistrationResponse> RegisterAsync(RegistrationRequest request);
         List<AuthorizedUsers> GetAllAcounts();
+        Task<AuthorizedUsers> GetAccountById(string AccountId);
     }
 }

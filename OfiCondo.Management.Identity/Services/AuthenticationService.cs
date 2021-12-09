@@ -56,6 +56,27 @@
             return response;
         }
 
+        public async Task<AuthorizedUsers> GetAccountById(string AccountId)
+        {
+            var user = await _userManager
+                .FindByIdAsync(AccountId);
+
+            if (user == null)
+            {
+                throw new Exception($"User with {AccountId} not found.");
+            }
+
+            return new AuthorizedUsers
+            {
+                Email = user.Email,
+                UserName = user.UserName,
+                EmailConfirmed = user.EmailConfirmed,
+                Id = user.Id,                
+                FirstName = user.FirstName,
+                LastName = user.LastName
+            };
+        }
+
         public List<AuthorizedUsers> GetAllAcounts()
         {
             return _userManager.Users.Select(x => new AuthorizedUsers 

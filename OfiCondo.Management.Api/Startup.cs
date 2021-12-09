@@ -108,6 +108,7 @@ namespace OfiCondo.Management.Api
 
 
             app.UseCustomLoggingHandler();
+            app.UseMiddleware<RateLimitMiddleware>();
 
             app.UseCors(ApplicationConstants.Open);
 
