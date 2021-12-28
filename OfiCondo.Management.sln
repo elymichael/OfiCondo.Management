@@ -38,6 +38,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfiCondo.Management.Support
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3F79AA0B-6648-4151-A88D-F306D28B9911}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfiCondo.Management.MemoryCache", "OfiCondo.Management.MemoryCache\OfiCondo.Management.MemoryCache.csproj", "{9B9BC669-BD2C-4A69-BB84-EB8F2D2AAF50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{3F79AA0B-6648-4151-A88D-F306D28B9911}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F79AA0B-6648-4151-A88D-F306D28B9911}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F79AA0B-6648-4151-A88D-F306D28B9911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B9BC669-BD2C-4A69-BB84-EB8F2D2AAF50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B9BC669-BD2C-4A69-BB84-EB8F2D2AAF50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B9BC669-BD2C-4A69-BB84-EB8F2D2AAF50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9BC669-BD2C-4A69-BB84-EB8F2D2AAF50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +103,7 @@ Global
 		{7E54847E-B41C-4C68-B4E6-1852F6734B12} = {8C5A0FB2-5D24-43AF-9556-70219E1FB5BA}
 		{2DD01E70-DA7F-4B01-9220-03E6FCDEDDDB} = {4FBF1C73-018F-4EFA-903A-62BACA156E7B}
 		{1AB1FB17-3205-41C3-94F7-F4B765842A7D} = {2DD01E70-DA7F-4B01-9220-03E6FCDEDDDB}
+		{9B9BC669-BD2C-4A69-BB84-EB8F2D2AAF50} = {EBF5FFD5-0335-43C6-8934-4DD5FBA270BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6CA54231-3EA8-415D-B9AA-4DA5ACB09D6B}
