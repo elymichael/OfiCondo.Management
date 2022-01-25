@@ -1,5 +1,12 @@
 # OfiCondo Management Project
-Application created to manage condominiums and apartments. This applicatin will handle the administration of the condominia with the apartments and the owner.
+Application created to manage condominiums and apartments. This applicatin will handle the administration of the condominia with the apartments and the owner. This project was worked using "clean architecture" and it's supported for some open source libraries suggested for clean architects. The open source libraries used are:
+- [x] **Serilog:** to log errors and information from the infrastucture project.
+- [x] **Swashbuckle:** for testing purpose.
+- [x] **JwtBearer:** for authorization and authentication.
+- [x] **SendGrid:** for mailing process.
+- [x] **AutoMapper:** convert object from one type to another object.
+- [x] **FluentValidation:** validation library for building strongly-typed validation rules.
+- [x] **MediatR:** the mediator pattern defines an object that encapsulates how a set of objects interact
 
 ## Working with Database
 ### Create database
